@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-option go_package = "proto/blog_microservice";
+option go_package = "proto/blog";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
 
 service BlogService {
    rpc GetAllBlogs(GetAllRequest) returns(GetBlogsResponse) {
@@ -80,7 +82,7 @@ service BlogService {
 		};
     }
 
-    rpc DeleteComment(DeleteCommentRequest) returns(DeleteCommentResponse) {
+    rpc DeleteComment(DeleteCommentRequest) returns(CommentResponse) {
         	option (google.api.http) = {
 			get: "/blog/deleteComment/{id}/{index}"
 		};
@@ -163,7 +165,7 @@ message Comment {
     string username = 3;
     string text = 4;
     google.protobuf.Timestamp creationTime = 5;
-    google.protobuf.Timestamp lastModification = 5;
+    google.protobuf.Timestamp lastModification = 6;
 }
 
 message Vote {
@@ -186,8 +188,8 @@ message Blog {
         Active = 2;
         Famous = 3;
     };
-    Status status = 6;
-    string image = 7;
+    Status status = 7;
+    string image = 8;
     enum Category {
         Travelogues = 0;
         Activities = 1;
@@ -196,9 +198,9 @@ message Blog {
         Culture = 4;
         Accommodation = 5;
     };
-    Category category = 8;
-    repeated Comment comments = 9;
-    repeated Vote votes = 10;
+    Category category = 9;
+    repeated Comment comments = 10;
+    repeated Vote votes = 11;
 }
 
 
