@@ -1,6 +1,8 @@
 syntax = "proto3";
 
 ////////
+option go_package = "proto/follower";
+import "google/api/annotations.proto";
 
 service FollowService {
     rpc AddFollow(AddFollowRequest) returns (AddFollowResponse) {
@@ -55,9 +57,6 @@ message GetFollowersOfMyFollowersRequest {
     uint32 user_id = 1;
 }
 
-message GetFollowersResponse {
-    repeated Profile followers = 1;
-}
 
 message GetAllProfilesRequest {}
 
