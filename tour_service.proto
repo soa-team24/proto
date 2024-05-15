@@ -1,10 +1,12 @@
 syntax = "proto3";
 
-option go_package = "proto/tour_service";
+option go_package = "proto/tour";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
 
 service TourService {
 
-  rpc Get(GetRequest) returns(TourResponse) {
+  rpc GetTour(GetRequest) returns(TourResponse) {
     option (google.api.http) = {
       get: "/tour/{id}"
     };
@@ -132,10 +134,15 @@ service TourService {
 
   rpc GetTourReviewsByTourID(GetRequest) returns(GetTourReviewsResponse) {
         	option (google.api.http) = {
-			get: "/tourReview/average-grade/{id}"
+			get: "/tourReview/{id}"
 		};
   }
 
+  rpc GetAverageGradeForTour(GetRequest) returns(GetAverageGradeForTourRequest) {
+        	option (google.api.http) = {
+			get: "/tourReview/average-grade/{id}"
+		};
+  }
   rpc GetTourProblem(GetRequest) returns(TourProblemResponse) {
       option (google.api.http) = {
         get: "/tourProblem/{id}"
@@ -184,6 +191,8 @@ message GetRequest {
 
 message TourResponse {
   Tour tour = 1;
+}
+message TourEmptyResponse {
 }
 
 message CreateTourRequest {
@@ -251,6 +260,10 @@ message UpdateTourReviewRequest{
         TourReview tourReview = 2;
 }
 
+message GetAverageGradeForTourRequest{
+        float averageGrade = 1;
+}
+
 
 
 message TourProblemResponse {
@@ -284,19 +297,19 @@ message Tour {
     };
     Status status = 6;
     string image = 7;
-    int difficulty = 8;
-    float64 price = 9;
-    float64 footTime = 10;
-    float64 bicycleTime = 11;
-    float64 carTime = 12;
-    float64 totalLength = 13;
+    uint32 difficulty = 8;
+    float price = 9;
+    float footTime = 10;
+    float bicycleTime = 11;
+    float carTime = 12;
+    float totalLength = 13;
 }
 
 message Checkpoint {
     string id = 1;
     string tourId = 2;
-    float64 latitude = 3;
-    float64 longitude = 4;
+    float latitude = 3;
+    float longitude = 4;
     string name = 5;
     string description = 6;
     string image = 7;
@@ -328,9 +341,11 @@ message TourProblem {
   string problemCategory = 2;
   string problemPriority = 3;
   google.protobuf.Timestamp timeStamp = 4;
-  string tourId = 5;
-  bool isClosed = 6;
-  bool isResolved = 7;
-  uint32 touristId = 8;
-  google.protobuf.Timestamp deadlineTimeStamp = 9;
+  string description = 5;
+  string tourId = 6;
+  bool isClosed = 7;
+  bool isResolved = 8;
+  uint32 touristId = 9;
+  google.protobuf.Timestamp deadlineTimeStamp = 10;
 }
+
