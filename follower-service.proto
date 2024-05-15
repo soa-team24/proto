@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-////////
 option go_package = "proto/follower";
 import "google/api/annotations.proto";
 
@@ -39,7 +38,7 @@ service FollowService {
 }
 
 message AddFollowRequest {
-    Profile follow = 1;
+    Follow follow = 1;
 }
 
 message AddFollowResponse {
