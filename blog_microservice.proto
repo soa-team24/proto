@@ -6,86 +6,55 @@ import "google/protobuf/timestamp.proto";
 
 service BlogService {
    rpc GetAllBlogs(GetAllRequest) returns(GetBlogsResponse) {
-      option (google.api.http) = {
-        get: "/blog"
-      };
+      
     }
 
     rpc GetBlogById(GetByIdRequest) returns(BlogResponse) {
-        	option (google.api.http) = {
-			get: "/blog/{id}"
-		};
+     
     }
 
     rpc PostBlog(CreateBlogRequest) returns(BlogResponse) {
-                option (google.api.http) = {
-                        post: "/blog"
-                        body: "*"
-                };
+                
     }
 
     rpc UpdateBlog(UpdateBlogRequest) returns(BlogResponse) {
-        	option (google.api.http) = {
-			patch: "/blog/{id}"
-		};
+     
     }
 
     rpc DeleteBlog(GetByIdRequest) returns(BlogResponse) {
-        	option (google.api.http) = {
-			delete: "/blog/{id}"
-		};
+    
         }
 
     rpc GetBlogsByAuthorId(GetByIdRequest) returns(GetBlogsResponse) {
-        	option (google.api.http) = {
-			get: "/blog/byUser/{id}"
-		};
+       
     }
 
     rpc GetAllVotes(GetByIdRequest) returns(GetAllVotesResponse) {
-        	option (google.api.http) = {
-			get: "/blog/allVotes/{id}"
-		};
+
     }
 
     rpc GetVotesCount(GetByIdRequest) returns(GetVotesCountResponse) {
-        	option (google.api.http) = {
-			get: "/blog/votes/{id}"
-		};
+
     }
 
     rpc AddVote(AddVoteRequest) returns(VoteResponse) {
-        	option (google.api.http) = {
-			patch: "/blog/addVote/{id}"
-                    body: "vote"
-		};
+
     }
 
     rpc ChangeVote(ChangeVoteRequest) returns(VoteResponse) {
-        	option (google.api.http) = {
-			patch: "/blog/updateVote/{id}/{index}"
-                    body: "vote"
-		};
+
     }
 
     rpc AddComment(AddCommentRequest) returns(CommentResponse) {
-        	option (google.api.http) = {
-			patch: "/blog/addComment/{id}"
-                    body: "comment"
-		};
+
     }
 
     rpc UpdateComment(UpdateCommentRequest) returns(CommentResponse) {
-        	option (google.api.http) = {
-			patch: "/blog/updateComment/{id}/{index}"
-                    body: "comment"
-		};
+
     }
 
     rpc DeleteComment(DeleteCommentRequest) returns(CommentResponse) {
-        	option (google.api.http) = {
-			get: "/blog/deleteComment/{id}/{index}"
-		};
+
     }
 
 

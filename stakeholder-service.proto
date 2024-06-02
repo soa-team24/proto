@@ -7,16 +7,10 @@ import "google/api/annotations.proto";
 
 service StakeholderService {
   rpc RegisterTourist(RegisterTouristRequest) returns (RegisterTouristResponse) {
-    option (google.api.http) = {
-      post: "/"
-      body: "*"
-    };
+    
   }
   rpc Login(LoginRequest) returns (RegisterTouristResponse) {
-    option (google.api.http) = {
-      post: "/login"
-      body: "*"
-    };
+   
   }
 }
 
@@ -54,7 +48,7 @@ message Person {
   string email = 5;
 }
 
-message Profile {
+message ProfileS {
   string id = 1;
   string first_name = 2;
   string last_name = 3;

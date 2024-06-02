@@ -5,34 +5,23 @@ import "google/api/annotations.proto";
 
 service FollowService {
     rpc AddFollow(AddFollowRequest) returns (AddFollowResponse) {
-        option (google.api.http) = {
-            post: "/follow"
-            body: "*"
-        };
+      
     }
 
     rpc GetAllFollowersForUser(GetFollowersRequest) returns(GetFollowersResponse) {
-        option (google.api.http) = {
-            get: "/userFollowers/{userId}"
-        };
+       
     }
 
     rpc GetAllFollowersOfMyFollowers(GetFollowersOfMyFollowersRequest) returns(GetFollowersResponse) {
-        option (google.api.http) = {
-            get: "/userSuggestedFollowers/{userId}"
-        };
+       
     }
 
     rpc GetAllProfiles(GetAllProfilesRequest) returns (GetAllProfilesResponse) {
-        option (google.api.http) = {
-            get: "/profiles"
-        };
+        
     }
 
     rpc CheckIfUserFollows(CheckIfUserFollowsRequest) returns (CheckIfUserFollowsResponse) {
-        option (google.api.http) = {
-            get: "/checkIfFollows/{followerID}/{userID}"
-        };
+        
     }
     
 }

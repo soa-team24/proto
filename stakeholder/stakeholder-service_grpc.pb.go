@@ -28,7 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type StakeholderServiceClient interface {
 	RegisterTourist(ctx context.Context, in *RegisterTouristRequest, opts ...grpc.CallOption) (*RegisterTouristResponse, error)
-	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*RegisterTouristResponse, error)
 }
 
 type stakeholderServiceClient struct {
@@ -48,8 +48,8 @@ func (c *stakeholderServiceClient) RegisterTourist(ctx context.Context, in *Regi
 	return out, nil
 }
 
-func (c *stakeholderServiceClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
-	out := new(LoginResponse)
+func (c *stakeholderServiceClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*RegisterTouristResponse, error) {
+	out := new(RegisterTouristResponse)
 	err := c.cc.Invoke(ctx, StakeholderService_Login_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -62,7 +62,7 @@ func (c *stakeholderServiceClient) Login(ctx context.Context, in *LoginRequest, 
 // for forward compatibility
 type StakeholderServiceServer interface {
 	RegisterTourist(context.Context, *RegisterTouristRequest) (*RegisterTouristResponse, error)
-	Login(context.Context, *LoginRequest) (*LoginResponse, error)
+	Login(context.Context, *LoginRequest) (*RegisterTouristResponse, error)
 	mustEmbedUnimplementedStakeholderServiceServer()
 }
 
@@ -73,7 +73,7 @@ type UnimplementedStakeholderServiceServer struct {
 func (UnimplementedStakeholderServiceServer) RegisterTourist(context.Context, *RegisterTouristRequest) (*RegisterTouristResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterTourist not implemented")
 }
-func (UnimplementedStakeholderServiceServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
+func (UnimplementedStakeholderServiceServer) Login(context.Context, *LoginRequest) (*RegisterTouristResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
 func (UnimplementedStakeholderServiceServer) mustEmbedUnimplementedStakeholderServiceServer() {}

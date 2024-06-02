@@ -7,172 +7,115 @@ import "google/protobuf/timestamp.proto";
 service TourService {
 
   rpc GetTour(GetRequest) returns(TourResponse) {
-    option (google.api.http) = {
-      get: "/tour/{id}"
-    };
+   
   }
 
   
  rpc GetAllTours(GetAllRequest) returns(GetToursResponse) {
-      option (google.api.http) = {
-        get: "/tour"
-      };
+      
   }
 
   rpc PostTour(CreateTourRequest) returns(TourResponse) {
-      option (google.api.http) = {
-          post: "/tour"
-          body: "*"
-      };
+      
     }
 
   rpc UpdateTour(UpdateTourRequest) returns(TourResponse) {
-        	option (google.api.http) = {
-			    patch: "/tour/{id}"
-		};
+     
   }
 
   rpc DeleteTour(GetRequest) returns(TourResponse) {
-        	option (google.api.http) = {
-			delete: "/tour/{id}"
-		};
+      
   }
 
   rpc GetToursByAuthor(GetRequest) returns(GetToursResponse) {
-        	option (google.api.http) = {
-			get: "/toursByAuthorId/{authorId}"
-		};
+     
   }
 
 
 
   rpc GetCheckpoint(GetRequest) returns(CheckpointResponse) {
-    option (google.api.http) = {
-      get: "/checkpoint/{id}"
-    };
+    
   }
 
   rpc PostCheckpoint(CreateCheckpointRequest) returns(CheckpointResponse) {
-      option (google.api.http) = {
-          post: "/checkpoint"
-          body: "*"
-      };
+      
   }
 
   rpc UpdateCheckpoint(UpdateCheckpointRequest) returns(CheckpointResponse) {
-        	option (google.api.http) = {
-			    patch: "/checkpoint/{id}"
-		};
+     
   }
 
 
   rpc DeleteCheckpoint(GetRequest) returns(CheckpointResponse) {
-      option (google.api.http) = {
-        delete: "/checkpoint/{id}"
-      };
+      
   }
 
  rpc GetCheckpointsByTourId(GetRequest) returns(GetCheckpointsResponse) {
-        	option (google.api.http) = {
-			get: "/checkpointByTourID/{id}"
-		};
+       
   }
 
 
   rpc GetEquipment(GetRequest) returns(EquipmentResponse) {
-    option (google.api.http) = {
-      get: "/equipment/{id}"
-    };
+   
   }
 
 
   rpc PostEquipment(CreateEquipmentRequest) returns(EquipmentResponse) {
-      option (google.api.http) = {
-          post: "/equipment"
-          body: "*"
-      };
+      
   }
 
   rpc UpdateEquipment(UpdateEquipmentRequest) returns(EquipmentResponse) {
-        	option (google.api.http) = {
-			    patch: "/equipment/{id}"
-		};
+     
   }
 
   rpc DeleteEquipment(GetRequest) returns(EquipmentResponse) {
-      option (google.api.http) = {
-        delete: "/equipment/{id}"
-      };
+      
   }
 
 
 
   rpc PostTourReview(CreateTourReviewRequest) returns(TourReviewResponse) {
-      option (google.api.http) = {
-          post: "/tourReview"
-          body: "*"
-      };
+      
   }
 
   rpc UpdateTourReview(UpdateTourReviewRequest) returns(TourReviewResponse) {
-        	option (google.api.http) = {
-			    patch: "/tourReview/{id}"
-		};
+      
   }
 
   rpc DeleteTourReview(GetRequest) returns(TourReviewResponse) {
-      option (google.api.http) = {
-        delete: "/tourReview/{id}"
-      };
+      
   }
 
   rpc GetAllTourReviews(GetAllRequest) returns(GetTourReviewsResponse) {
-      option (google.api.http) = {
-        get: "/tourReview"
-      };
+      
   }
 
   rpc GetTourReviewsByTourID(GetRequest) returns(GetTourReviewsResponse) {
-        	option (google.api.http) = {
-			get: "/tourReview/{id}"
-		};
+      
   }
 
   rpc GetAverageGradeForTour(GetRequest) returns(GetAverageGradeForTourRequest) {
-        	option (google.api.http) = {
-			get: "/tourReview/average-grade/{id}"
-		};
+       
   }
   rpc GetTourProblem(GetRequest) returns(TourProblemResponse) {
-      option (google.api.http) = {
-        get: "/tourProblem/{id}"
-      };
+      
     }
 
 
   rpc PostTourProblem(CreateTourProblemRequest) returns(TourProblemResponse) {
-      option (google.api.http) = {
-          post: "/tourProblem"
-          body: "*"
-      };
+      
   }
 
   rpc UpdateTourProblem(UpdateTourProblemRequest) returns(TourProblemResponse) {
-        	option (google.api.http) = {
-			    patch: "/tourProblem/{id}"
-		};
+     
   }
 
   rpc DeleteTourProblem(GetRequest) returns(TourProblemResponse) {
-      option (google.api.http) = {
-        delete: "/tourProblem/{id}"
-      };
+      
   }
 
   rpc GetTourProblemsForTourist(GetRequest) returns(GetTourProblemsResponse) {
-        	option (google.api.http) = {
-			get: "/tourProblems/{id}"
-		};
+    
   }
 
 
